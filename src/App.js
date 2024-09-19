@@ -45,6 +45,7 @@ function App() {
         <h1 className='question-heading'>Question {activeIndex + 1} of {questionsData.length}</h1>
         <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
         <Difficulty level={questionsData[activeIndex].difficulty}/>
+        <div aria-hidden={true} className='spacer'></div>
         <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={[...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer)), decodeURIComponent(questionsData[activeIndex].correct_answer)]}/>
         </div>)
         }

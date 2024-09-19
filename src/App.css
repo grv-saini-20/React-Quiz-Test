@@ -15,3 +15,7 @@
     color: grey;
     font-weight: 500;
 }
+
+.spacer{
+    margin-block: 40px;
+}
