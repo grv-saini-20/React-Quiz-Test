@@ -7,31 +7,28 @@
     align-items: center;
     justify-content: space-between;
 }
-.progress-bar {
+.marks-bar {
     position: absolute;
     -webkit-appearance: none;
     appearance: none;
     inline-size: 100%;
     block-size: 20px;
     border: none;
+    z-index: 5;
   }
   
-  .progress-bar::-webkit-progress-bar {
+  .marks-bar::-webkit-progress-bar {
     background-color: lightgray; 
   }
   
-  .progress-bar::-webkit-progress-value {
-    background-color: gray;
+  .marks-bar::-webkit-progress-value {
+    background-color: rgb(71, 71, 71);
   }
   
-  .progress-bar::-moz-progress-bar {
+  .marks-bar::-moz-progress-bar {
     background-color: lightgray;
   }
   
-  .progress-label {
-    margin-block-start: 5px;
-    display: block;
-  }
 
 .behind-bar {
     position: absolute;
@@ -40,10 +37,11 @@
     inline-size: 100%;
     block-size: 20px;
     border: none;
+    z-index: 1;
   }
   
   .behind-bar::-webkit-progress-bar {
-    background-color: darkslategray; 
+    background-color: lightgray; 
   }
   
   .behind-bar::-webkit-progress-value {
@@ -51,10 +49,5 @@
   }
   
   .behind-bar::-moz-progress-bar {
-    background-color: darkslategray;
-  }
-  
-  .progress-label {
-    margin-block-start: 5px;
-    display: block;
+    background-color: lightgray;
   }

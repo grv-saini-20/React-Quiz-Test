@@ -1,4 +1,7 @@
 .progress-bar {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     -webkit-appearance: none;
     appearance: none;
     inline-size: 100%;

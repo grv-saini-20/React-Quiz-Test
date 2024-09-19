@@ -9,12 +9,13 @@ import MarksProgressBar from './components/MarksProgressBar/MarksProgressBar';
 function App() {
   const [questionsData, setQuestionsData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const {correctQuestions} = useContext(QuestionContext);
+  const {correctQuestions, maxScore, setNewScore} = useContext(QuestionContext);
   const [marks, setMarks] = useState(0);
 
   const calculateMarks = () => {
     const value = (correctQuestions/questionsData?.length)*100
-    setMarks(value);
+    setMarks(value);   
+    setNewScore(value)
   }
 
   const handleNext = () => {
@@ -47,11 +48,10 @@ function App() {
         <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
 
         <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={[...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer)), decodeURIComponent(questionsData[activeIndex].correct_answer)]}/>
-
         </div> )
         }
 
-        <MarksProgressBar marks={marks} maxMarks={0}/>
+        <MarksProgressBar marks={marks} maxMarks={maxScore}/>
     </section>
     </main>
   );

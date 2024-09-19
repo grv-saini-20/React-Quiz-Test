@@ -5,8 +5,8 @@ function MarksProgressBar({marks, maxMarks}) {
   return (
     <div className='container'>
         <div className="marks-values">
-            <p>Score: {marks}</p>
-            <p>Max Score: {maxMarks}</p>
+            <p>Score: {marks}%</p>
+            <p>Max Score: {maxMarks}%</p>
         </div>
         <progress value={marks} max="100" className='progress-bar'>
         </progress>
