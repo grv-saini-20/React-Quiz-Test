@@ -1,24 +1,56 @@
-import logo from './logo.svg';
+import { useContext, useEffect, useState } from 'react';
 import './App.css';
+import Difficulty from './components/Difficulty/Difficulty';
+import Question from './components/Question/Question';
+import { QuestionContext } from './context/QuestionContext';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 
 function App() {
+  const [questionsData, setQuestionsData] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const {correctQuestions} = useContext(QuestionContext);
+  const [marks, setMarks] = useState(0);
+
+  const calculateMarks = () => {
+    const value = (correctQuestions/questionsData?.length)*100
+    setMarks(value);
+  }
+
+  const handleNext = () => {
+    if(activeIndex < (questionsData.length - 1)){
+      setActiveIndex(prev => prev + 1)
+    }
+  }
+
+  useEffect(() => {
+    fetch("data/questions.json")
+    .then((response) => response.json())
+    .then((data) => setQuestionsData(data))
+    .catch((error => console.log({"data fetching error" : error})))
+  }      
+  ,[])
+
+  useEffect(() => {
+    calculateMarks()
+  },[correctQuestions, questionsData])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+    <ProgressBar value={((activeIndex + 1)/questionsData.length)*100}/>  
+    <section className="main-page">
+      {/* <Difficulty level="medium"/> */}
+        {questionsData.length !== 0 && (
+        <div>
+
+        <h1 className='question-heading'>Question {activeIndex + 1} of {questionsData.length}</h1>
+        <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
+
+        <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={[...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer)), decodeURIComponent(questionsData[activeIndex].correct_answer)]}/>
+
+        </div> )
+        }
+    </section>
+    </main>
   );
 }
 

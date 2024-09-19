@@ -1,0 +1,24 @@
+.progress-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    inline-size: 100%;
+    block-size: 20px;
+    border: none;
+  }
+  
+  .progress-bar::-webkit-progress-bar {
+    background-color: lightgray; 
+  }
+  
+  .progress-bar::-webkit-progress-value {
+    background-color: gray;
+  }
+  
+  .progress-bar::-moz-progress-bar {
+    background-color: gray;
+  }
+  
+  .progress-label {
+    margin-block-start: 5px;
+    display: block;
+  }

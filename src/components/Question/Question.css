@@ -1,0 +1,57 @@
+.question-form{
+    max-inline-size: 700px;
+    inline-size: 100%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question{
+    margin-block-end: 40px;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    max-inline-size: 550px;
+    inline-size: 100%;
+    margin-inline: auto;
+}
+.option{
+    background-color: lightgray;
+    color: black;
+    padding-inline: 40px;
+    padding-block: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.option-input{
+    display: none;
+}
+
+.option-value{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.status {
+    margin-block-start: 40px;
+    block-size: 50px;
+    text-align: center;
+}
+
+.btn{
+    max-inline-size: max-content;
+    inline-size: 100%;
+    margin-inline: auto;
+    padding: 10px 30px;
+    background-color: lightgray;
+    color: black;
+    outline: none;
+    border: 1px solid black;
+    font-size: 1rem;
+    margin-block: 20px;
+}
