@@ -40,11 +40,11 @@ function App() {
     <main>
     <ProgressBar value={((activeIndex + 1)/questionsData.length)*100}/>  
     <section className="main-page">
-      {/* <Difficulty level="medium"/> */}
         {questionsData.length !== 0 && (
-        <div>
+          <div>
         <h1 className='question-heading'>Question {activeIndex + 1} of {questionsData.length}</h1>
         <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
+        <Difficulty level={questionsData[activeIndex].difficulty}/>
         <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={[...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer)), decodeURIComponent(questionsData[activeIndex].correct_answer)]}/>
         </div>)
         }
