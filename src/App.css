@@ -2,6 +2,7 @@
     max-inline-size: 700px;
     inline-size: 100%;
     margin-inline: auto;
+    padding-block-end: 100px;
 }
 .question-heading{
     margin-block-start: 40px;

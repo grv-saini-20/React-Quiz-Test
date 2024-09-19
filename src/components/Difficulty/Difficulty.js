@@ -2,7 +2,7 @@ import React from 'react';
 import "./Difficulty.css";
 
 function Difficulty({level}) {
-  const filledStars = level === "easy" ? 1 : level === "medium" ? 3 : 5;
+  const filledStars = level === "easy" ? 1 : level === "medium" ? 2 : 3;
 
   return (
     <div>
