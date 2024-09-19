@@ -8,7 +8,7 @@ function MarksProgressBar({marks, maxMarks}) {
             <p>Score: {marks}%</p>
             <p>Max Score: {maxMarks}%</p>
         </div>
-        <progress value={marks} max="100" className='progress-bar'>
+        <progress value={marks} max="100" className='marks-bar'>
         </progress>
         <progress value={maxMarks} max="100" className='behind-bar'>
         </progress>

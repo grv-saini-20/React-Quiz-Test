@@ -14,11 +14,11 @@
     inline-size: 100%;
     block-size: 20px;
     border: none;
-    z-index: 5;
+    z-index: 2;
   }
   
   .marks-bar::-webkit-progress-bar {
-    background-color: lightgray; 
+    background-color: transparent; 
   }
   
   .marks-bar::-webkit-progress-value {
@@ -26,7 +26,7 @@
   }
   
   .marks-bar::-moz-progress-bar {
-    background-color: lightgray;
+    background-color: transparent;
   }
   
 

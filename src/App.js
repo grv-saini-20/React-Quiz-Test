@@ -15,7 +15,7 @@ function App() {
   const calculateMarks = () => {
     const value = (correctQuestions/questionsData?.length)*100
     setMarks(value);   
-    setNewScore(value)
+    setNewScore(value);
   }
 
   const handleNext = () => {
@@ -43,14 +43,11 @@ function App() {
       {/* <Difficulty level="medium"/> */}
         {questionsData.length !== 0 && (
         <div>
-
         <h1 className='question-heading'>Question {activeIndex + 1} of {questionsData.length}</h1>
         <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
-
         <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={[...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer)), decodeURIComponent(questionsData[activeIndex].correct_answer)]}/>
-        </div> )
+        </div>)
         }
-
         <MarksProgressBar marks={marks} maxMarks={maxScore}/>
     </section>
     </main>
