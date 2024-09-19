@@ -25,7 +25,7 @@ function Question({question, options, correctAnswer, handleNext }) {
         <h1 className='question'>{decodeURIComponent(question)}</h1>
         <div className='options'>
         {options.map((option,i)=>(
-        <div key={i} className="option" >    
+        <div key={i} className={`option ${selectedValue === option ? 'selected' : ''}`} >    
         <input className='option-input' id={option} name="quiz" type="radio" value={option} checked={selectedValue === option} onChange={handleChange} />
         <label className='option-value' htmlFor={option}>{option}</label>
         </div>
