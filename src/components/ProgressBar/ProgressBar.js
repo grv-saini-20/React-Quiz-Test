@@ -5,7 +5,6 @@ function ProgressBar({value}) {
   return (
     <>
         <progress value={value} max="100" className='progress-bar'>
-        {value}%
         </progress>
     </>
   )

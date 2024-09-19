@@ -4,6 +4,7 @@ import Difficulty from './components/Difficulty/Difficulty';
 import Question from './components/Question/Question';
 import { QuestionContext } from './context/QuestionContext';
 import ProgressBar from './components/ProgressBar/ProgressBar';
+import MarksProgressBar from './components/MarksProgressBar/MarksProgressBar';
 
 function App() {
   const [questionsData, setQuestionsData] = useState([]);
@@ -49,6 +50,8 @@ function App() {
 
         </div> )
         }
+
+        <MarksProgressBar marks={marks} maxMarks={0}/>
     </section>
     </main>
   );
