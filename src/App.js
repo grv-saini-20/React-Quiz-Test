@@ -5,6 +5,7 @@ import Question from './components/Question/Question';
 import { QuestionContext } from './context/QuestionContext';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import MarksProgressBar from './components/MarksProgressBar/MarksProgressBar';
+import {randomizeArray} from './utils/RandomizeOptions';
 
 function App() {
   const [questionsData, setQuestionsData] = useState([]);
@@ -46,7 +47,7 @@ function App() {
         <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
         <Difficulty level={questionsData[activeIndex].difficulty}/>
         <div aria-hidden={true} className='spacer'></div>
-        <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={[...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer)), decodeURIComponent(questionsData[activeIndex].correct_answer)]}/>
+        <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={randomizeArray([decodeURIComponent(questionsData[activeIndex].correct_answer),...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer))])}/>
         </div>)
         }
         <MarksProgressBar marks={marks} maxMarks={maxScore}/>
