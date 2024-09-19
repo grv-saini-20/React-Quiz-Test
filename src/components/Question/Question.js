@@ -17,7 +17,8 @@ function Question({question, options, correctAnswer, handleNext }) {
         if(selectedValue === correctAnswer) {
             addCorrectAnswer(true)
         }
-        setSelectedValue("")
+        setSelectedValue("");
+        setIsSelected(false);
         handleNext()
     }
   return (
