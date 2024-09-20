@@ -50,7 +50,7 @@ function App() {
         <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={randomizeArray([decodeURIComponent(questionsData[activeIndex].correct_answer),...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer))])}/>
         </div>)
         }
-        <MarksProgressBar marks={marks} maxMarks={maxScore}/>
+        <MarksProgressBar marks={~~(marks)} maxMarks={~~(maxScore)}/>
     </section>
     </main>
   );
