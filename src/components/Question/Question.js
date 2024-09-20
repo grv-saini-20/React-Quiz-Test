@@ -26,10 +26,10 @@ function Question({question, options, correctAnswer, handleNext }) {
         <h1 className='question'>{decodeURIComponent(question)}</h1>
         <div className='options'>
         {options.map((option,i)=>(
-        <div key={i} className={`option ${selectedValue === option ? 'selected' : ''}`} >    
+        <label htmlFor={option} key={i} className={`option ${selectedValue === option ? 'selected' : ''}`} >    
         <input className='option-input' id={option} name="quiz" type="radio" value={option} checked={selectedValue === option} onChange={handleChange} disabled={isSelected} />
-        <label className='option-value' htmlFor={option}>{option}</label>
-        </div>
+        <p className='option-value'>{option}</p>
+        </label>
         ))}
         </div>
         <h1 className='status'>{!selectedValue ? "" : selectedValue === correctAnswer ? "Correct!" : "Sorry, Try again!"}</h1>
