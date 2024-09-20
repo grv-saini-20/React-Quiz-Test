@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react'
 import {QuestionContext} from "../../context/QuestionContext";
 import "./Question.css";
 
-function Question({question, options, correctAnswer, handleNext }) {
+function Question({question, options, correctAnswer, handleNext, questionsLength }) {
     const [selectedValue, setSelectedValue] = useState("");
     const [isSelected, setIsSelected] = useState(false);
+    const [questionIndex, setQuestionIndex] = useState(0);
     const {addCorrectAnswer} = useContext(QuestionContext);
 
     const handleChange = (e) => {
@@ -13,12 +14,14 @@ function Question({question, options, correctAnswer, handleNext }) {
     }
 
     const handleSubmit = (e) => {
+        if((questionIndex + 1) !== questionsLength)
         e.preventDefault();
         if(selectedValue === correctAnswer) {
             addCorrectAnswer(true)
         }
         setSelectedValue("");
         setIsSelected(false);
+        setQuestionIndex(prev => prev + 1);
         handleNext()
     }
   return (
@@ -33,8 +36,8 @@ function Question({question, options, correctAnswer, handleNext }) {
         ))}
         </div>
         <h1 className='status'>{!selectedValue ? "" : selectedValue === correctAnswer ? "Correct!" : "Sorry, Try again!"}</h1>
-        {isSelected &&
-        <button className='btn' type='submit'>Next Question</button>
+        {isSelected && 
+        <button className='btn' type='submit'>{questionsLength === (questionIndex + 1) ? "Complete Quiz" : "Next Question"}</button>
         }
     </form>
   )

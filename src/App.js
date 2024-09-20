@@ -47,7 +47,7 @@ function App() {
         <p className="category">{decodeURIComponent(questionsData[activeIndex].category)}</p>
         <Difficulty level={questionsData[activeIndex].difficulty}/>
         <div aria-hidden={true} className='spacer'></div>
-        <Question handleNext={handleNext} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={randomizeArray([decodeURIComponent(questionsData[activeIndex].correct_answer),...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer))])}/>
+        <Question handleNext={handleNext} questionsLength={questionsData.length} question={questionsData[activeIndex].question} correctAnswer={decodeURIComponent(questionsData[activeIndex].correct_answer)} options={randomizeArray([decodeURIComponent(questionsData[activeIndex].correct_answer),...questionsData[activeIndex].incorrect_answers.map(answer => decodeURIComponent(answer))])}/>
         </div>)
         }
         <MarksProgressBar marks={~~(marks)} maxMarks={~~(maxScore)}/>
