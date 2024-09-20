@@ -15,18 +15,22 @@
     block-size: 20px;
     border: none;
     z-index: 2;
+    border-radius: 5px;
   }
   
   .marks-bar::-webkit-progress-bar {
     background-color: transparent; 
+    border-radius: 5px;
   }
   
   .marks-bar::-webkit-progress-value {
     background-color: rgb(71, 71, 71);
+    border-radius: 5px;
   }
   
   .marks-bar::-moz-progress-bar {
     background-color: transparent;
+    border-radius: 5px;
   }
   
 
@@ -38,16 +42,20 @@
     block-size: 20px;
     border: none;
     z-index: 1;
+    border-radius: 5px;
   }
   
   .behind-bar::-webkit-progress-bar {
     background-color: lightgray; 
+    border-radius: 5px;
   }
   
   .behind-bar::-webkit-progress-value {
     background-color: rgb(26, 22, 22);
+    border-radius: 5px;
   }
   
   .behind-bar::-moz-progress-bar {
     background-color: lightgray;
+    border-radius: 5px;
   }
