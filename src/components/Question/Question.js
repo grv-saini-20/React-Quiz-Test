@@ -27,7 +27,7 @@ function Question({question, options, correctAnswer, handleNext }) {
         <div className='options'>
         {options.map((option,i)=>(
         <div key={i} className={`option ${selectedValue === option ? 'selected' : ''}`} >    
-        <input className='option-input' id={option} name="quiz" type="radio" value={option} checked={selectedValue === option} onChange={handleChange} />
+        <input className='option-input' id={option} name="quiz" type="radio" value={option} checked={selectedValue === option} onChange={handleChange} disabled={isSelected} />
         <label className='option-value' htmlFor={option}>{option}</label>
         </div>
         ))}
