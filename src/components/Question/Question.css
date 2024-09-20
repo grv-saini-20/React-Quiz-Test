@@ -18,6 +18,9 @@
     max-inline-size: 550px;
     inline-size: 100%;
     margin-inline: auto;
+    @media screen and (width <= 520px) {
+        grid-template-columns: auto;
+    }
 }
 .option{
     background-color: lightgray;
